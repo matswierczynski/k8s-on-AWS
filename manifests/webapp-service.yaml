@@ -13,4 +13,5 @@ spec:
   # or for external users to connect to
   selector:
     app: webapp
+    release: 0-5
   type: NodePort

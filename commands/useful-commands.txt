@@ -1,2 +1,4 @@
 1. kubectl apply -f ./manifests/fleetman-namespace.yaml
 2. kubectl apply -f manifests --namespace=fleetman
+3. kubectl get po --show-labels --namespace=fleetman
+4. kubectl get po --show-labels --namespace=fleetman -l release=0
