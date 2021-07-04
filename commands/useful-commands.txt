@@ -4,3 +4,6 @@
 4. kubectl get po --show-labels --namespace=fleetman -l release=0
 5. kubectl delete po webapp-release-0-5 --namespace=fleetman
 6. kubectl delete pods --all --namespace=fleetman
+7. kubectl rollout status deploy webapp --namespace=fleetman # current status of deployment
+8. kubectl rollout history deploy webapp --namespace=fleetman # show history of deployments
+9. kubectl rollout undo deploy webapp --namespace=fleetman # roll back to previous version
