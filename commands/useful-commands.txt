@@ -18,3 +18,4 @@
 -------------------------------------------------------------------------------------------------------
 1. kubectl config set-context --current --namespace=fleetman # set default namespace in k8s
 2. http://localhost:30020/vehicles/City%20Truck # get info about City Truck's current position
+3. http://localhost:30080 # web app URL
