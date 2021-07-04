@@ -3,3 +3,4 @@
 3. kubectl get po --show-labels --namespace=fleetman
 4. kubectl get po --show-labels --namespace=fleetman -l release=0
 5. kubectl delete po webapp-release-0-5 --namespace=fleetman
+6. kubectl delete pods --all --namespace=fleetman
