@@ -7,3 +7,10 @@
 7. kubectl rollout status deploy webapp --namespace=fleetman # current status of deployment
 8. kubectl rollout history deploy webapp --namespace=fleetman # show history of deployments
 9. kubectl rollout undo deploy webapp --namespace=fleetman # roll back to previous version
+10. kubectl get ns # list all namespaces
+11. kubectl get all -n kube-system # list all in kube-system namespace
+12. kubectl describe svc kube-dns -n kube-system # describe specific service in another namespace
+13. kubectl exec webapp-6ccdfd88cb-jklwv -n fleetman -- ls # exec command inside pod
+14. kubectl exec webapp-6ccdfd88cb-jklwv -it -n fleetman -- sh # interactive interaction with container
+15. cat /etc/resolv.conf # default location of dns server -> equal to ip's adrress of kube-dns
+16. nslookup database # find ip of database service
