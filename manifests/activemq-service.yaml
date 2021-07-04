@@ -10,3 +10,5 @@ spec:
     - name: http
       nodePort: 30010
       port: 8161
+    - name: endpoint
+      port: 61616

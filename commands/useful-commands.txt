@@ -14,3 +14,6 @@
 14. kubectl exec webapp-6ccdfd88cb-jklwv -it -n fleetman -- sh # interactive interaction with container
 15. cat /etc/resolv.conf # default location of dns server -> equal to ip's adrress of kube-dns
 16. nslookup database # find ip of database service
+
+-------------------------------------------------------------------------------------------------------
+1. kubectl config set-context --current --namespace=fleetman # set default namespace in k8s
