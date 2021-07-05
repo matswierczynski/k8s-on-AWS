@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: queue
+  name: mongodb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: queue
+      app: mongodb
   template:
     metadata:
       labels:
-        app: queue
+        app: mongodb
     spec:
       containers:
-        - name: activemq
-          image: richardchesterwood/k8s-fleetman-queue:release2
+        - name: mongo
+          image: mongo:3.6.5-jessie
