@@ -1,0 +1,28 @@
+1. Run t2-micro EC2 Instance
+2. Generate key-pair
+3. Copy it into directory where all manifests reside
+4. Change permissions to the key-pair file:
+    chgrp 545 ./kubernetes-keypair.pem
+    chmod 600 ./kubernetes-keypair.pem
+    icacls .\kubernetes-keypair.pem /inheritance:r
+    icacls .\kubernetes-keypair.pem /grant:r "%username%":"(R)"
+5. Log into EC2 Instance:
+    ssh -i kubernetes-keypair.pem ec2-user@54.90.17.238
+6. When being ssh'ed to the EC2 Instance run:
+    curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+    chmod +x kops
+    sudo mv kops /usr/local/bin/kops
+7. Install kubectl on EC2 Instance
+     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+8. Grant this Ec2 Instance the following permissions (create a 'kops' group):
+    AmazonEC2FullAccess
+    AmazonRoute53FullAccess
+    AmazonS3FullAccess
+    IAMFullAccess
+    AmazonVPCFullAccess
+9. Create 'kops' user and add it to the 'kops' group
+10. aws configure
+11. Export variables:
+    export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
+    export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
