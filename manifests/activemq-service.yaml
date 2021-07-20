@@ -3,12 +3,11 @@ kind: Service
 metadata:
   name: fleetman-queue
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: queue
   ports:
     - name: http
-      nodePort: 30010
       port: 8161
     - name: endpoint
       port: 61616
