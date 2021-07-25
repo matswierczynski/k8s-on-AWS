@@ -16,5 +16,9 @@ spec:
         - name: position-simulator
           image: richardchesterwood/k8s-fleetman-position-simulator:release2
           env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production-microservice
+          - name: SPRING_PROFILES_ACTIVE
+            value: production-microservice
+          envFrom:
+            - configMapRef:
+                name: global-database-config-v3
+
