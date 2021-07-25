@@ -18,7 +18,11 @@ spec:
           env:
           - name: SPRING_PROFILES_ACTIVE
             value: production-microservice
-          envFrom:
-            - configMapRef:
-                name: global-database-config-v3
+          volumeMounts:
+            - mountPath: /etc/any/directory/config
+              name: database-config-volume
+      volumes:
+        - name: database-config-volume
+          configMap:
+            name: global-database-config-v4
 
