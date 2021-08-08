@@ -14,13 +14,17 @@ spec:
     spec:
       containers:
         - name: position-simulator
-          image: richardchesterwood/k8s-fleetman-position-simulator:release2
+          image: richardchesterwood/k8s-fleetman-position-simulator:resources
           env:
           - name: SPRING_PROFILES_ACTIVE
             value: production-microservice
           volumeMounts:
             - mountPath: /etc/any/directory/config
               name: database-config-volume
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 50m
       volumes:
         - name: database-config-volume
           configMap:
