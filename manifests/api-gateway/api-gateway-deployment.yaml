@@ -14,11 +14,15 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: richardchesterwood/k8s-fleetman-api-gateway:resources
+          image: richardchesterwood/k8s-fleetman-api-gateway:performance
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
           resources:
             requests:
-              memory: 200Mi
+              memory: 200Mi # requests != limits or at least requests: QoS: Burstable
               cpu: 50m

@@ -19,3 +19,6 @@ spec:
             requests:
               memory: 300Mi
               cpu: 100m
+            limits: # requests = limits: QoS: Guaranteed
+              memory: 300Mi
+              cpu: 100m
