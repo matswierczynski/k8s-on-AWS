@@ -1,0 +1,12 @@
+1. helm add repo
+2. helm repo list
+2. helm install monitoring prom-repo/kube-prometheus-stack -f values.yaml
+3. helm upgrade monitoring prom-repo/kube-prometheus-stack -f values.yaml
+4. helm uninstall monitoring
+5. helm pull prom-repo/kube-prometheus-stack --untar
+6. helm install monitoring ./kube-prometheus-stack/ -f values.yaml
+7. helm template monitoring ./kube-prometheus-stack/ -f values.yaml > monitoring-stack.yaml
+
+
+
+4. kubectl port-forward svc/monitoring-grafana 80
